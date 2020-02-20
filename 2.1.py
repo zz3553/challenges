@@ -66,14 +66,32 @@ def add(lst, val):
     
     return 0
 
+def solution(lst):
+    array = []
+    dups = []
+    temp = lst
+    array.append(lst.data)
+    while(temp is not None):
+        if temp.next is not None and temp.data not in array:
+            array.append(temp.next.data)
+        else:
+            dups.append(temp.next.data)
+            temp.next = temp.next.next
+        temp = temp.next
+
+    for x in range(len(dups)):
+        deletionByData(lst, dups[x])
+
+    
+
 def main():
-    lst = Node(7, None)
-    lst2 = Node(6, lst)
+    lst = Node(3, None)
+    lst2 = Node(2, lst)
+    lst3 = Node(1, lst2)
+    lst4 = Node(2, lst3)
     # print(deletionAtIndex(lst2, 1))
 
-    print(addAt(lst2, 1, 1))
-
-    print(add(lst2, 3))
+    solution(lst4)
 
 
 main()
