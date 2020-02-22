@@ -67,19 +67,19 @@ def add(lst, val):
     return 0
 
 def solution(lst):
-    array = []
-    dups = []
-    temp = lst
-    array.append(lst.data)
-    while(temp is not None):
-        if temp.next is not None and temp.data not in array:
+    array = [] #store numbers here from linked list
+    dups = [] #store duplicated numbers here 
+    temp = lst #temp list to go through 
+    array.append(lst.data) #put first linked list index into array
+    while(temp is not None):  
+        if temp.next is not None and temp.next.data not in array: #checks to see it next isnt end of list; also its not a duplicate
             array.append(temp.next.data)
-        else:
-            dups.append(temp.next.data)
+        else: # if number is duplicated 
+            dups.append(temp.next.data) 
             temp.next = temp.next.next
-        temp = temp.next
+        temp = temp.next #iterate to next 
 
-    for x in range(len(dups)):
+    for x in range(len(dups)): # deletes duplicates from list 
         deletionByData(lst, dups[x])
 
     
