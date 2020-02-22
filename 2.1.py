@@ -82,8 +82,19 @@ def solution(lst):
     for x in range(len(dups)): # deletes duplicates from list 
         deletionByData(lst, dups[x])
 
-    
 
+#solution with two pointers 
+def solution2(lst):
+    temp = lst
+    while temp is not None:
+        after = temp.next
+        while after is not None:
+            if after.data == temp.data:
+                after.next = after.next.next
+            after = after.next
+
+        temp = temp.next
+    
 def main():
     lst = Node(3, None)
     lst2 = Node(2, lst)
@@ -91,7 +102,9 @@ def main():
     lst4 = Node(2, lst3)
     # print(deletionAtIndex(lst2, 1))
 
-    solution(lst4)
+    #print(solution(lst4))
+    print(solution2(lst4))
+
 
 
 main()
