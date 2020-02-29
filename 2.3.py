@@ -8,12 +8,14 @@ class Node:
 def solution(node):
 
     node = node.next #set current to next
+    return node
 
 def main():
     lst = Node(3, None)
     lst2 = Node(2, lst)
     lst3 = Node(1, lst2)
     lst4 = Node(2, lst3)
-    solution(lst2)
-    
+    lst2 = solution(lst2)
+    print(lst2.data)
+
 main()
