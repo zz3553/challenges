@@ -19,8 +19,16 @@ def solve(str, size):
 
     # return str
 
+    res = ''
+    for i in range(len(str)):
+        if i < size-1 and str[i] == ' ' and str[i+1] != ' ':
+            res += STR
+        elif i < size and str[i] != ' ':
+            res += str[i]
+    return res
 
-
-print(solve("Mr John    Smith   ", 13))
+str = "    Mr John    Smith   "
+length = len(str)
+print(solve(str, length))
 
 
