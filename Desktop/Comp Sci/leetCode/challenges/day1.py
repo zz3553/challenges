@@ -9,7 +9,7 @@ def solve(str):
     #     data.append(i)
     # return True
 
-    for i in range(len(str)):
+    for i in range(len(str)): #solution 2 without structures
         for x in range(i+1, len(str)):
             if str[i] == str[x]:
                 return False
