@@ -2,4 +2,13 @@
 # What if you cannot use additional data structures?
 
 def solve(str):
-    return False
+    data = []
+    for i in str:
+        if i in data:
+            return False
+        data.append(i)
+    return True
+
+
+print(solve("helo"))
+
