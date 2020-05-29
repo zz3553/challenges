@@ -2,4 +2,10 @@
 
 
 def solve(str1, str2):
-    return True
+    str1 = sorted(str1)
+    str2 = sorted(str2)
+    if str1 == str2: 
+        return True
+    return False
+
+print(solve("rac", "car"))
