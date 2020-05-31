@@ -10,5 +10,17 @@
 # Output: True -> ("taco cat", "atco eta", ... )
 
 def solve(str):
-    return False
+    map = {}
+    for i in str:
+        if i not in map:
+            map[i] = 1
+        else:
+            map[i] += 1
 
+    for i in map:
+        if map[i] > 2:
+            return False
+
+    return True
+
+print(solve("tact coa"))
