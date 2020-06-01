@@ -4,4 +4,30 @@
 # (Can you do this in place?)
 
 def solve(image):
+    result = [ [ 0 for i in range(len(image)) ] for j in range(len(image)) ]
+    index = len(result)-1
+    index2 = len(result)-1 
+    for i in range(len(image)):
+        map = image[i]
+        for x in range(len(map)):
+            result[index2][index] = map[x]
+            index2 -= 1
+        index -= 1
+        index2 = len(result)-1
+    
+    print(result)
     return None
+
+matrix = [[0,1],
+          [2,3]]
+
+matrix2 = [[0,1,2],
+            [3,4,5],
+                [6,7,8]]
+
+matrix3 = [[0,1,2,3],
+            [4,5,6,7],
+                [8,9,10,11],
+                    [12,13,14,15]]
+
+solve(matrix3)
