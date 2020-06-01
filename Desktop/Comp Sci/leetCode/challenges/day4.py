@@ -7,6 +7,7 @@ def solve(image):
     result = [ [ 0 for i in range(len(image)) ] for j in range(len(image)) ]
     index = len(result)-1
     index2 = len(result)-1 
+
     for i in range(len(image)):
         map = image[i]
         for x in range(len(map)):
@@ -15,8 +16,10 @@ def solve(image):
         index -= 1
         index2 = len(result)-1
     
-    print(result)
-    return None
+    for i in range(len(result)//2):
+        result[i] , result[len(result)-1-i] = result[len(result)-1-i], result[i]
+    
+    return result
 
 matrix = [[0,1],
           [2,3]]
@@ -30,4 +33,4 @@ matrix3 = [[0,1,2,3],
                 [8,9,10,11],
                     [12,13,14,15]]
 
-solve(matrix3)
+print(solve(matrix3))
