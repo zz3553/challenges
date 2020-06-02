@@ -36,14 +36,15 @@ def solve(list1, list2):
     sum = sum // 10
     a = sum % 10
     while sum is not 0:
-        someNode = helper(someNode, sum%10)
+        someNode.next = Node(sum%10, None)
+        someNode.next = someNode.next.next
         sum = sum // 10
 
     return someNode
 
 def helper(node, val):
     if val//10 == 0 and val %10 != 0:
-        node2 = Node(val, node)
+        node2 = Node(node.data, Node(val, None))
         return node2
     return
 
