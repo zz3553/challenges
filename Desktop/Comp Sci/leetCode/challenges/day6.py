@@ -10,7 +10,7 @@ def solveSTRING(str):
     else:
         return solve(str[1:len(str)-1])
 
-print(solveSTRING('hello world '))
+#print(solveSTRING('hello world '))
 
 # Palindrome: Implement a function to check if a linked list is a palindrome.
 
@@ -23,5 +23,30 @@ class Node:
     self.next = next
 
 
+def length(node) -> int: 
+    count = 0
+    while node is not None:
+        count += 1
+        node = node.next
+    return count 
+
 def solve(node):
-    return False
+    temp = node
+    lst = []
+    index = 0
+    while temp is not None:
+        lst.insert(0,temp.data)
+        temp = temp.next
+
+    while node is not None:
+        if lst[index] != node.data:
+            return False
+        index += 1
+        node = node.next
+    return True
+
+node1 = Node(6, None)
+node2 = Node(1, node1)
+node3 = Node(6, node2)
+
+print(solve(node3))
