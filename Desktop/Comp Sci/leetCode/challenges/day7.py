@@ -12,6 +12,13 @@ class Node:
     self.data = data
     self.next = next
 
+def length(list):
+    count = 0
+    while list is not None:
+        count += 1
+        list = list.next
+    return count
+
 def solve(list1, list2):
     # temp = list2     this way is if theres only one intersecting nodes, but rest of list isn't the same
     # while list1 is not None:
@@ -22,15 +29,41 @@ def solve(list1, list2):
     #     temp = list2
     #     list1 = list1.next
     # return False
+    temp1 = list1 if length(list1) > length(list2) else list2 #bigger list
+    temp2 = list2 if length(list1) > length(list2) else list1
+    count = length(temp1) - length(temp2)
+
+    while count != 0:
+        temp1 = temp1.next
+        count -= 1 
+    
+    temp1 = temp1.next
+    temp2 = temp2.next
+    while temp1 is not None:
+        if temp1.data != temp2.data:
+            return False
+        temp1 = temp1.next
+        temp2 = temp2.next
+
+    return True
 
 
-node1 = Node(6, None)
-node2 = Node(1, node1)
-node3 = Node(7, node2)
+# node1 = Node(6, None)
+# node2 = Node(1, node1)
+# node3 = Node(7, node2)
 
-node4 = Node(5, None)
-node5 = Node(7, node4)
-node6 = Node(1, node5)
+# node4 = Node(5, None)
+# node5 = Node(7, node4)
+# node6 = Node(1, node5)
+
+node7 = Node(30, None)
+node8 = Node(15, node7)
+node9 = Node(9,node8)
+
+node10 = Node(30, None)
+node11 = Node(15, node10)
+node12 = Node(10, node11)
+node13 = Node(5, node12)
 
 
-print(solve(node3, node6))
+print(solve(node13, node9))
